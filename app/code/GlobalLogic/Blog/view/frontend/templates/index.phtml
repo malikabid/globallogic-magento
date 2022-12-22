@@ -13,8 +13,12 @@ $posts = $this->getPostList();
         <p>
             <?= $post->getShortDescription() ?>
         </p>
-        <a href="
+        <!-- <a href="
         <?= $block->escapeUrl($post->getUrl() . 'index/view/id/' . $post->getId()) ?>">
+            <?= __('Read More...') ?>
+        </a> -->
+        <a href="
+        <?= $block->escapeUrl($post->getUrl()) ?>">
             <?= __('Read More...') ?>
         </a>
     <?php endforeach; ?>

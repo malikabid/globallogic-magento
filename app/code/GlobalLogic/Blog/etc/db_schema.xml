@@ -7,6 +7,7 @@
         <column xsi:type="varchar" name="name" nullable="false" comment="Blog Post name" />
         <column xsi:type="text" name="short_description" comment="Blog Post Short Description" />
         <column xsi:type="text" name="content" comment="Blog Post Content" />
+        <column xsi:type="varchar" name="url_key" comment="Blog Post URL Key" />
         <column xsi:type="boolean" name="enabled" nullable="false" default="true"
             comment="Blog Post status" />
 
