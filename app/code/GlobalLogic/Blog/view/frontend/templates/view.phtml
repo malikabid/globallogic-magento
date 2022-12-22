@@ -1,0 +1,15 @@
+<?php
+
+/** @var \GlobalLogic\Blog\Block\Post\View $block */
+
+$blogPost = $this->getBlogPost();
+?>
+
+<div class="template">
+    <h2>
+        <?= $blogPost->getName() ?>
+    </h2>
+    <p>
+        <?= $blogPost->getContent() ?>
+    </p>
+</div>

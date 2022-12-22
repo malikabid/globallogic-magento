@@ -1,0 +1,8 @@
+{
+    "name": "globallogic/module-cms",
+    "description": "N/A",
+    "type": "magento2-module",
+    "require": {
+        "magento/module-cms": "101.1.*"
+    }
+}

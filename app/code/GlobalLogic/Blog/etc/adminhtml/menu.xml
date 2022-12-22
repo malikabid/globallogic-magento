@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="GlobalLogic_Blog::blog_elements" title="Blog" translate="title"
+            module="GlobalLogic_Blog" sortOrder="100" parent="Magento_Backend::content"
+            resource="GlobalLogic_Blog::blog_post" />
+
+        <add id="GlobalLogic_Blog::blog_post" title="Blog Posts" module="GlobalLogic_Blog"
+            sortOrder="100" action="blog/post/index"
+            resource="GlobalLogic_Blog::blog_post"
+            parent="GlobalLogic_Blog::blog_elements" />
+    </menu>
+</config>

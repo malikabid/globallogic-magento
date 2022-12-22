@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="blog_post" resource="default" engine="innodb" comment="Blog post table">
+        <column xsi:type="int" name="entity_id" unsigned="false" nullable="false" identity="true"
+            comment="Blog Post Id" />
+        <column xsi:type="varchar" name="name" nullable="false" comment="Blog Post name" />
+        <column xsi:type="text" name="short_description" comment="Blog Post Short Description" />
+        <column xsi:type="text" name="content" comment="Blog Post Content" />
+        <column xsi:type="boolean" name="enabled" nullable="false" default="true"
+            comment="Blog Post status" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id" />
+        </constraint>
+    </table>
+</schema>

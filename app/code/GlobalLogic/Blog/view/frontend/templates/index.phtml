@@ -1,0 +1,21 @@
+<?php
+
+/** @var \GlobalLogic\Blog\Block\Post\ListPost $block */
+
+$posts = $this->getPostList();
+?>
+
+<div class="template">
+    <?php foreach ($posts as $post) : ?>
+        <h2>
+            <?= $post->getName() ?>
+        </h2>
+        <p>
+            <?= $post->getShortDescription() ?>
+        </p>
+        <a href="
+        <?= $block->escapeUrl($post->getUrl() . 'index/view/id/' . $post->getId()) ?>">
+            <?= __('Read More...') ?>
+        </a>
+    <?php endforeach; ?>
+</div>

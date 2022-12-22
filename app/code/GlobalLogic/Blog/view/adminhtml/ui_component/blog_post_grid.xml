@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">blog_post_grid.blog_listing_data_source</item>
+            <item name="deps" xsi:type="string">blog_post_grid.blog_listing_data_source</item>
+        </item>
+
+        <item
+            name="spinner" xsi:type="string">blog_listing_columns</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new" />
+                <class>primary</class>
+                <label translate="true">Add New Blog</label>
+            </button>
+        </buttons>
+    </settings>
+
+    <listingToolbar>
+        <bookmark name="bookmarks" />
+        <columnsControls name="column_contrls" />
+        <filterSearch name="fulltext" />
+        <filters name="listing_filters" />
+        <paging name="listing_paging" />
+        <exportButton name="export_button" />
+    </listingToolbar>
+
+    <dataSource name="blog_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">entity_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render" />
+        </settings>
+        <aclResource>GlobalLogic_Blog::blog_post</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+            name="blog_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <columns name="blog_listing_columns">
+        <selectionsColumn name="ids" sortOrder="0">
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="entity_id" sortOrder="10">
+            <settings>
+                <label translate="true">ID</label>
+                <filter>textRange</filter>
+            </settings>
+        </column>
+        <column name="name" sortOrder="20">
+            <settings>
+                <label translate="true">Name</label>
+                <filter>text</filter>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="enabled" component="Magento_Ui/js/grid/columns/select" sortOrder="50">
+            <settings>
+                <options class="GlobalLogic\Blog\Model\Source\Enabled" />
+                <dataType>select</dataType>
+                <label translate="true">Status</label>
+                <filter>select</filter>
+            </settings>
+        </column>
+        <actionsColumn name="actions"
+            class="GlobalLogic\Blog\Ui\Component\Listing\Column\PostActions" sortOrder="100">
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+
+</listing>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="customer.login.container">
+            <!-- <block
+                ifconfig="customer/create_account/disable_customer_registration"
+            class="GlobalLogic\CustomerRegistration\Block\DisableRegistrationMesage"
+            name="disable_registration_notification"
+            template="GlobalLogic_CustomerRegistration::index.phtml" /> -->
+
+
+            <block
+                ifconfig="customer/create_account/disable_customer_registration"
+                name="disable_registration_notification"
+                template="GlobalLogic_CustomerRegistration::index.phtml">
+                <arguments>
+                    <argument name="message_model" xsi:type="object">
+                        GlobalLogic\CustomerRegistration\ViewModel\Message
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
