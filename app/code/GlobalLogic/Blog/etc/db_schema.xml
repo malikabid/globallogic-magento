@@ -9,7 +9,7 @@
         <column xsi:type="text" name="content" comment="Blog Post Content" />
         <column xsi:type="boolean" name="enabled" nullable="false" default="true"
             comment="Blog Post status" />
-
+        <column xsi:type="varchar" name="url_key" nullable="false" comment="Blog Post URL KEY" />
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="entity_id" />
         </constraint>

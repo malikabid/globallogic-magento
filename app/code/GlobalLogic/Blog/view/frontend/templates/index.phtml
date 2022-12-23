@@ -14,7 +14,7 @@ $posts = $this->getPostList();
             <?= $post->getShortDescription() ?>
         </p>
         <a href="
-        <?= $block->escapeUrl($post->getUrl() . 'index/view/id/' . $post->getId()) ?>">
+        <?= $block->escapeUrl($post->getPostUrl()) ?>">
             <?= __('Read More...') ?>
         </a>
     <?php endforeach; ?>
