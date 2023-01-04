@@ -1,0 +1,26 @@
+<?php
+
+/** @var \GlobalLogic\ProductList\Block\Products $block */
+?>
+
+<div class="template">
+    <h2>Total Products: <?= $this->getProductCount() ?></h2>
+
+</div>
+
+<div class="product-list">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>SKU</th>
+            <th>Type</th>
+        </tr>
+        <?php foreach ($this->getProductList() as $product) : ?>
+            <tr>
+                <td><?= $product->getName() ?></td>
+                <td><?= $product->getSKU() ?></td>
+                <td><?= $product->getTypeId() ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</div>
