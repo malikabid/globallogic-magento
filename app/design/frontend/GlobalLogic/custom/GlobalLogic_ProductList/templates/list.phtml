@@ -1,0 +1,53 @@
+<?php
+
+/** @var \GlobalLogic\ProductList\Block\Products $block */
+?>
+
+<div class="template">
+    <h2>Total Products: <?= $this->getProductCount() ?></h2>
+
+</div>
+
+<div class="product-list">
+    <div id="slider" class="owl-carousel owl-theme" data-mage-init='{"carousel":{
+        "loop":true,
+                "margin":10,
+                "nav":true,
+                "item":5,
+                "navText":[
+                    "<<<",
+                    ">>>"
+                    ]
+    }}'>
+        <?php foreach ($this->getProductList() as $product) : ?>
+            <div class="item">
+                <div class="product">
+                    <div class="product-image">
+                        <!-- <img src="<?= $product->getImage() ?>" /> -->
+                    </div>
+                    <h2><?= $product->getName() ?></h2>
+                    <div>
+                        <?= $product->getSku() ?>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>data-mage-init
+</div>
+
+<!-- <script type="text/x-magento-init">
+    {
+        "#slider":{
+            "carousel":{
+                "loop":true,
+                "margin":10,
+                "nav":true,
+                "item":5,
+                "navText":[
+                    "<<",
+                    ">>"
+                    ]
+            }
+        }
+    }
+</script> -->
