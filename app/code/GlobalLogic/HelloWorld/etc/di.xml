@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Customer\Model\Registration">
+        <plugin name="gl_helloworld_disable_reg"
+            type="GlobalLogic\HelloWorld\Plugin\DisableRegistration" />
+    </type>
+</config>
