@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/posts" method="GET">
+        <service class="\GlobalLogic\Blog\Api\PostRepositoryInterface" method="getList" />
+        <resources>
+            <resource ref="GlobalLogic_Blog::blog_post" />
+        </resources>
+    </route>
+
+    <route method="GET" url="/V1/post/:id">
+        <service class="\GlobalLogic\Blog\Api\PostRepositoryInterface" method="get" />
+        <resources>
+            <resource ref="GlobalLogic_Blog::blog_post" />
+        </resources>
+    </route>
+</routes>
