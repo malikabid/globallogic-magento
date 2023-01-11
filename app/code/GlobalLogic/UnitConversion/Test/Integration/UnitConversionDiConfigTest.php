@@ -11,6 +11,7 @@ class UnitConversionDiConfigTest extends \PHPUnit\Framework\TestCase
 
     private $configType = \GloabalLogic\UnitConversion\Model\Config\UnitConversion\Virtual::class;
     private $readerType = \GloabalLogic\UnitConversion\Model\Config\UnitConversion\Reader\Virtual::class;
+    private $schemaLocatorType = \GlobalLogic\UnitConversion\Model\Config\UnitConversion\SchemaLocator\Virtual::class;
 
     private function getDiConfig()
     {
@@ -52,5 +53,28 @@ class UnitConversionDiConfigTest extends \PHPUnit\Framework\TestCase
         $this->assertVirtualType(\Magento\Framework\Config\Data::class, $this->configType);
         $this->assertDiArgumentSame('gl_unitmap_config', $this->configType, 'cacheId');
         $this->assertDiArgumentType($this->readerType, $this->configType, 'reader');
+    }
+
+    public function testUnitConversionReaderDiConfig()
+    {
+        $this->assertVirtualType(\Magento\Framework\Config\GenericSchemaLocator::class, $this->schemaLocatorType);
+        $this->assertDiArgumentSame('GlobalLogic_UnitConversion', $this->schemaLocatorType, 'moduleName');
+        $this->assertDiArgumentSame('unit_conversion.xsd', $this->schemaLocatorType, 'schema');
+    }
+
+    public function testUnitConversionConfigReaderDiConfig()
+    {
+        $this->assertVirtualType(\Magento\Framework\Config\Reader\Filesystem::class, $this->readerType);
+        $this->assertDiArgumentSame('unit_conversion.xml', $this->readerType, 'fileName');
+        $this->assertDiArgumentType($this->schemaLocatorType, $this->readerType, 'schemaLocator');
+    }
+
+    public function testUnitConversionDataCanBeAccessed()
+    {
+        $unitConversionConfig = ObjectManager::getInstance()->create($this->configType);
+        $configData = $unitConversionConfig->get(null);
+
+        $this->assertIsArray($configData);
+        $this->assertNotEmpty($configData);
     }
 }

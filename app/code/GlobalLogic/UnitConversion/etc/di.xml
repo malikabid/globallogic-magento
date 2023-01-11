@@ -9,4 +9,21 @@
                 GloabalLogic\UnitConversion\Model\Config\UnitConversion\Reader\Virtual</argument>
         </arguments>
     </virtualType>
+
+    <virtualType name="GlobalLogic\UnitConversion\Model\Config\UnitConversion\SchemaLocator\Virtual"
+        type="Magento\Framework\Config\GenericSchemaLocator">
+        <arguments>
+            <argument name="moduleName" xsi:type="string">GlobalLogic_UnitConversion</argument>
+            <argument name="schema" xsi:type="string">unit_conversion.xsd</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="GloabalLogic\UnitConversion\Model\Config\UnitConversion\Reader\Virtual"
+        type="Magento\Framework\Config\Reader\Filesystem">
+        <arguments>
+            <argument name="fileName" xsi:type="string">unit_conversion.xml</argument>
+            <argument name="schemaLocator" xsi:type="object">
+                GlobalLogic\UnitConversion\Model\Config\UnitConversion\SchemaLocator\Virtual</argument>
+        </arguments>
+    </virtualType>
 </config>
