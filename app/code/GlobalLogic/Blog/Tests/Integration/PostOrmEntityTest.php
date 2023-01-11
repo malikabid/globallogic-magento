@@ -3,7 +3,7 @@
 namespace GlobalLogic\Blog\Tests\Integration;
 
 /**
- * @magentoDbIsolation enable
+ * @magentoDbIsolation enabled
  */
 class PostOrmEntityTest extends \PHPUnit\Framework\TestCase
 {
